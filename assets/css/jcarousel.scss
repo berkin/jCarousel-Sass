@@ -5,10 +5,10 @@ $item_width: 75px;
 $visible: 3;
 $margin: 10px;
 
-$fraction: 25px;
+$fraction: 35px;
 
 $padding: 20px;
-$padding_buttons: 40px; // padding for buttons
+$padding_buttons: 40px; // padding for buttons when no fraction
 
 
 //calculate variables
@@ -82,17 +82,17 @@ $container_length: ($item_height * $visible) + (($visible - 1) * $margin);
    /* horizontal buttons */
   .jcarousel-next-horizontal {
     position: absolute;
-    top: 43px;
-    right: 5px;
+    top: $padding;
+    right: 0;
     width: 32px;
-    height: 32px;
+    height: 75px;
     cursor: pointer;
-    background: transparent url(../images/next-horizontal.png) no-repeat 0 0; }
+    background: transparent url(../images/next-horizontal-fraction.png) no-repeat 0 center; }
     
   .jcarousel-direction-rtl .jcarousel-next-horizontal {
-    left: 5px;
+    left: 0;
     right: auto;
-    background-image: url(../images/prev-horizontal.png); }
+    background-image: url(../images/prev-horizontal-fraction.png); }
     
   .jcarousel-next-horizontal {
     &:hover, &:focus {
@@ -109,17 +109,17 @@ $container_length: ($item_height * $visible) + (($visible - 1) * $margin);
       
   .jcarousel-prev-horizontal {
     position: absolute;
-    top: 43px;
-    left: 5px;
+    top: $padding;
+    left: 0;
     width: 32px;
-    height: 32px;
+    height: 75px;
     cursor: pointer;
-    background: transparent url(../images/prev-horizontal.png) no-repeat 0 0; }
+    background: transparent url(../images/prev-horizontal-fraction.png) no-repeat 0 center; }
     
   .jcarousel-direction-rtl .jcarousel-prev-horizontal {
     left: auto;
     right: 5px;
-    background-image: url(../images/next-horizontal.png); }
+    background-image: url(../images/next-horizontal-fraction.png); }
     
   .jcarousel-prev-horizontal {
     &:hover, &:focus {
@@ -138,12 +138,12 @@ $container_length: ($item_height * $visible) + (($visible - 1) * $margin);
    /* vertical buttons */
   .jcarousel-next-vertical {
     position: absolute;
-    bottom: 5px;
-    left: 43px;
-    width: 32px;
+    bottom: 0;
+    left: $padding;
+    width: 75px;
     height: 32px;
     cursor: pointer;
-    background: transparent url(../images/next-vertical.png) no-repeat 0 0;
+    background: transparent url(../images/next-vertical-fraction.png) no-repeat center 0;
     &:hover, &:focus {
       background-position: 0 -32px; }
     &:active {
@@ -158,12 +158,12 @@ $container_length: ($item_height * $visible) + (($visible - 1) * $margin);
       
   .jcarousel-prev-vertical {
     position: absolute;
-    top: 5px;
-    left: 43px;
-    width: 32px;
+    top: 0;
+    left: $padding;
+    width: 75px;
     height: 32px;
     cursor: pointer;
-    background: transparent url(../images/prev-vertical.png) no-repeat 0 0;
+    background: transparent url(../images/prev-vertical-fraction.png) no-repeat center 0;
     &:hover, &:focus {
       background-position: 0 -32px; }
     &:active {
