@@ -1,0 +1,177 @@
+// variables
+$item_height: 75px;
+$item_width: 75px;
+
+$visible: 3;
+$margin: 10px;
+
+$fraction: 25px;
+
+$padding: 20px;
+$padding_buttons: 40px; // padding for buttons
+
+
+//calculate variables
+$container_length: ($item_height * $visible) + (($visible - 1) * $margin);
+
+@if $fraction > 0 {
+  // if fraction occurs, no padding is assigned.
+  $padding_buttons: 0;
+  }
+
+
+
+.jcarousel-skin-tango {
+  .jcarousel-container {
+    background: #F0F6F9;
+    border: 1px solid #346F97; }
+
+  .jcarousel-item {
+    width: $item_width;
+    height: $item_height; }
+  
+  .jcarousel-direction-rtl {
+    direction: rtl; }
+    
+  @if $fraction == 0 {
+    .jcarousel-clip {
+      overflow: hidden; }    
+    }
+   
+  /* horizontal buttons */
+  .jcarousel-container-horizontal {
+    width: $container_length - ($fraction * 2 );
+    @if $fraction > 0 {
+            overflow: hidden;}
+    padding: $padding $padding_buttons;}
+    
+  .jcarousel-clip-horizontal {
+    height: $item_height; 
+    margin-left: -$fraction;
+    width: $container_length;}
+    
+  .jcarousel-item-horizontal {
+    margin-left: 0;
+    margin-right: $margin; }
+    
+  .jcarousel-direction-rtl .jcarousel-item-horizontal {
+    margin-left: $margin;
+    margin-right: 0; }
+    
+  /* vertical */
+  .jcarousel-container-vertical {
+    width: $item_width;
+    height: $container_length - ($fraction * 2);
+    @if $fraction > 0 {
+            overflow: hidden;}    
+    padding: $padding_buttons $padding; }
+
+  .jcarousel-clip-vertical {
+    width: $item_width;
+    margin-top: -$fraction;
+    height: $container_length; }
+
+
+  .jcarousel-item-vertical {
+    margin-bottom: $margin; }
+    
+  .jcarousel-item-placeholder {
+    background: #fff;
+    color: #000; }
+    
+   /* horizontal buttons */
+  .jcarousel-next-horizontal {
+    position: absolute;
+    top: 43px;
+    right: 5px;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    background: transparent url(../images/next-horizontal.png) no-repeat 0 0; }
+    
+  .jcarousel-direction-rtl .jcarousel-next-horizontal {
+    left: 5px;
+    right: auto;
+    background-image: url(../images/prev-horizontal.png); }
+    
+  .jcarousel-next-horizontal {
+    &:hover, &:focus {
+      background-position: -32px 0; }
+    &:active {
+      background-position: -64px 0; } }
+      
+  .jcarousel-next-disabled-horizontal {
+    cursor: default;
+    background-position: -96px 0;
+    &:hover, &:focus, &:active {
+      cursor: default;
+      background-position: -96px 0; } }
+      
+  .jcarousel-prev-horizontal {
+    position: absolute;
+    top: 43px;
+    left: 5px;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    background: transparent url(../images/prev-horizontal.png) no-repeat 0 0; }
+    
+  .jcarousel-direction-rtl .jcarousel-prev-horizontal {
+    left: auto;
+    right: 5px;
+    background-image: url(../images/next-horizontal.png); }
+    
+  .jcarousel-prev-horizontal {
+    &:hover, &:focus {
+      background-position: -32px 0; }
+    &:active {
+      background-position: -64px 0; } }
+      
+  .jcarousel-prev-disabled-horizontal {
+    cursor: default;
+    background-position: -96px 0;
+    &:hover, &:focus, &:active {
+      cursor: default;
+      background-position: -96px 0; } }
+      
+      
+   /* vertical buttons */
+  .jcarousel-next-vertical {
+    position: absolute;
+    bottom: 5px;
+    left: 43px;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    background: transparent url(../images/next-vertical.png) no-repeat 0 0;
+    &:hover, &:focus {
+      background-position: 0 -32px; }
+    &:active {
+      background-position: 0 -64px; } }
+      
+  .jcarousel-next-disabled-vertical {
+    cursor: default;
+    background-position: 0 -96px;
+    &:hover, &:focus, &:active {
+      cursor: default;
+      background-position: 0 -96px; } }
+      
+  .jcarousel-prev-vertical {
+    position: absolute;
+    top: 5px;
+    left: 43px;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    background: transparent url(../images/prev-vertical.png) no-repeat 0 0;
+    &:hover, &:focus {
+      background-position: 0 -32px; }
+    &:active {
+      background-position: 0 -64px; } }
+      
+  .jcarousel-prev-disabled-vertical {
+    cursor: default;
+    background-position: 0 -96px;
+    &:hover, &:focus, &:active {
+      cursor: default;
+      background-position: 0 -96px; } } }
