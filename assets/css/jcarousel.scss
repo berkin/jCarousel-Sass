@@ -203,46 +203,19 @@ $fraction: 0;
 $padding: 20px;
 $padding_buttons: 40px; // padding for buttons when no fraction    
     
-@include jcarousel-template(
-  $template_name,
-  $item_height,
-  $item_width,
-  $visible,
-  $margin,
-  $fraction,
-  $padding,
-  $padding_buttons
-);
+@include jcarousel-template($template_name);
 
 
 // sub template
 $template_name: sub;
-$item_height: 75px;
-$item_width: 75px;
 
-$visible: 3;
-$margin: 10px;
-
+$visible: 5;
 $fraction: 25px;
 
-$padding: 20px;
-$padding_buttons: 40px; // padding for buttons when no fraction    
-
 $horizontal_button_sprite: '../images/horizontal-fraction.png';
-$horizontal_button_width: 32px;
 $horizontal_button_height: 75px;
 
 $vertical_button_sprite: '../images/vertical-fraction.png';
 $vertical_button_width: 75px;
-$vertical_button_height: 32px;
     
-@include jcarousel-template(
-  $template_name,
-  $item_height,
-  $item_width,
-  $visible,
-  $margin,
-  $fraction,
-  $padding,
-  $padding_buttons
-);
+@include jcarousel-template($template_name);

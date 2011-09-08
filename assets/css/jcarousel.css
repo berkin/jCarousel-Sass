@@ -145,14 +145,14 @@
   direction: rtl;
 }
 .jcarousel-skin-sub .jcarousel-container-horizontal {
-  width: 195px;
+  width: 365px;
   overflow: hidden;
   padding: 20px 0;
 }
 .jcarousel-skin-sub .jcarousel-clip-horizontal {
   height: 75px;
   margin-left: -25px;
-  width: 245px;
+  width: 415px;
 }
 .jcarousel-skin-sub .jcarousel-item-horizontal {
   margin-left: 0;
@@ -164,14 +164,14 @@
 }
 .jcarousel-skin-sub .jcarousel-container-vertical {
   width: 75px;
-  height: 195px;
+  height: 365px;
   overflow: hidden;
   padding: 0 20px;
 }
 .jcarousel-skin-sub .jcarousel-clip-vertical {
   width: 75px;
   margin-top: -25px;
-  height: 245px;
+  height: 415px;
 }
 .jcarousel-skin-sub .jcarousel-item-vertical {
   margin-bottom: 10px;

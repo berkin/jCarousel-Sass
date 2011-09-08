@@ -1,1 +1,7 @@
-Riding carousel with jCarousel and Sass
+<h1>Riding carousel with jCarousel and Sass<h1>
+<h2>Features</h2>
+<ul>
+  <li>Setup your carousel with changing variables</li>
+  <li>Easily make fraction configuation</li>
+  <li>Automatically center your next and previous buttons</li>
+</ul>
