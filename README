@@ -1,7 +1,12 @@
-<h1>Riding carousel with jCarousel and Sass<h1>
-<h2>Features</h2>
-<ul>
-  <li>Setup your carousel with changing variables</li>
-  <li>Easily make fraction configuation</li>
-  <li>Automatically center your next and previous buttons</li>
-</ul>
+#Riding carousel with jCarousel and Sass
+##Features
+  
+* Setup your carousel with changing variables
+* Easily make fraction configuation
+* Automatically center your next and previous buttons
+
+## TODO
+
+* Using compass sprite for buttons
+* Using same template with different visible elements
+* Using same template with different sized elements
