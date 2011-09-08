@@ -11,6 +11,14 @@ $fraction: 0 !default;
 $padding: 20px !default;
 $padding_buttons: 40px  !default; // padding for buttons when no fraction
 
+$horizontal_button_sprite: '../images/horizontal.png';
+$horizontal_button_width: 32px;
+$horizontal_button_height: 32px;
+
+$vertical_button_sprite: '../images/vertical.png';
+$vertical_button_width: 32px;
+$vertical_button_height: 32px;
+
 @mixin jcarousel-template(
   $name,
   $item_height,
@@ -19,7 +27,13 @@ $padding_buttons: 40px  !default; // padding for buttons when no fraction
   $margin,
   $fraction,
   $padding,
-  $padding_buttons) {
+  $padding_buttons,
+  $horizontal_button_sprite,
+  $horizontal_button_width,
+  $horizontal_button_height,
+  $vertical_button_sprite,
+  $vertical_button_width,
+  $vertical_button_height) {
 
 //calculate variables
 $container_length: ($item_height * $visible) + (($visible - 1) * $margin);
@@ -30,9 +44,6 @@ $container_length: ($item_height * $visible) + (($visible - 1) * $margin);
   }
 
 .jcarousel-skin-#{$name} {
-  .jcarousel-container {
-    background: #F0F6F9;
-    border: 1px solid #346F97; }
 
   .jcarousel-item {
     width: $item_width;
@@ -90,102 +101,96 @@ $container_length: ($item_height * $visible) + (($visible - 1) * $margin);
    // horizontal buttons
   .jcarousel-next-horizontal {
     position: absolute;
-    top: $padding;
+    top: $padding + ( ($item_height - $horizontal_button_height)/2 );
     right: 0;
-    width: 32px;
-    height: 75px;
+    width: $horizontal_button_width;
+    height: $horizontal_button_height;
     cursor: pointer;
-    background: transparent url(../images/next-horizontal-fraction.png) no-repeat 0 center; }
+    background: transparent url($horizontal_button_sprite) no-repeat 0 center; }
     
   .jcarousel-direction-rtl .jcarousel-next-horizontal {
     left: 0;
     right: auto;
-    background-image: url(../images/prev-horizontal-fraction.png); }
+    background-position: (-$horizontal_button_width*4) center; }
     
   .jcarousel-next-horizontal {
     &:hover, &:focus {
-      background-position: -32px 0; }
+      background-position: -$horizontal_button_width 0; }
     &:active {
-      background-position: -64px 0; } }
+      background-position: -$horizontal_button_width*2 0; } }
       
   .jcarousel-next-disabled-horizontal {
     cursor: default;
-    background-position: -96px 0;
+    background-position: -$horizontal_button_width*3 0;
     &:hover, &:focus, &:active {
       cursor: default;
-      background-position: -96px 0; } }
+      background-position: -$horizontal_button_width*3 0; } }
       
   .jcarousel-prev-horizontal {
-    position: absolute;
-    top: $padding;
+    @extend .jcarousel-next-horizontal;
+    right: auto;
     left: 0;
-    width: 32px;
-    height: 75px;
-    cursor: pointer;
-    background: transparent url(../images/prev-horizontal-fraction.png) no-repeat 0 center; }
+    background: transparent url($horizontal_button_sprite) no-repeat (-$horizontal_button_width*4) center; }
     
   .jcarousel-direction-rtl .jcarousel-prev-horizontal {
     left: auto;
     right: 0;
-    background-image: url(../images/next-horizontal-fraction.png); }
+    background-position: 0 center }
     
   .jcarousel-prev-horizontal {
     &:hover, &:focus {
-      background-position: -32px 0; }
+      background-position: (-$horizontal_button_width*5) 0; }
     &:active {
-      background-position: -64px 0; } }
+      background-position: (-$horizontal_button_width*6) 0; } }
       
   .jcarousel-prev-disabled-horizontal {
     cursor: default;
-    background-position: -96px 0;
+    background-position: (-$horizontal_button_width*7) 0;
     &:hover, &:focus, &:active {
       cursor: default;
-      background-position: -96px 0; } }
+      background-position: (-$horizontal_button_width*7) 0; } }
       
       
    //vertical buttons
   .jcarousel-next-vertical {
     position: absolute;
     bottom: 0;
-    left: $padding;
-    width: 75px;
-    height: 32px;
+    left: $padding + ( ($item_width - $horizontal_button_width)/2 );
+    width: $vertical_button_width;
+    height: $vertical_button_height;
     cursor: pointer;
-    background: transparent url(../images/next-vertical-fraction.png) no-repeat center 0;
+    background: transparent url($vertical_button_sprite) no-repeat center 0;
     &:hover, &:focus {
-      background-position: 0 -32px; }
+      background-position: 0 (-$vertical_button_height); }
     &:active {
-      background-position: 0 -64px; } }
+      background-position: 0 (-$vertical_button_height*2); } }
       
   .jcarousel-next-disabled-vertical {
     cursor: default;
-    background-position: 0 -96px;
+    background-position: 0 (-$vertical_button_height*3);
     &:hover, &:focus, &:active {
       cursor: default;
-      background-position: 0 -96px; } }
+      background-position: 0 (-$vertical_button_height*3); } }
       
   .jcarousel-prev-vertical {
-    position: absolute;
+    @extend .jcarousel-next-vertical;
     top: 0;
-    left: $padding;
-    width: 75px;
-    height: 32px;
-    cursor: pointer;
-    background: transparent url(../images/prev-vertical-fraction.png) no-repeat center 0;
+    bottom: auto;
+    background: transparent url($vertical_button_sprite) no-repeat center (-$vertical_button_height*4);
     &:hover, &:focus {
-      background-position: 0 -32px; }
+      background-position: 0 (-$vertical_button_height*5); }
     &:active {
-      background-position: 0 -64px; } }
+      background-position: 0 (-$vertical_button_height*6); } }
       
   .jcarousel-prev-disabled-vertical {
     cursor: default;
-    background-position: 0 -96px;
+    background-position: 0 (-$vertical_button_height*7);
     &:hover, &:focus, &:active {
       cursor: default;
-      background-position: 0 -96px; } } }    
+      background-position: 0 (-$vertical_button_height*7); } } }    
     }
 
-// variables
+// main template
 $template_name: main;
 $item_height: 75px;
 $item_width: 75px;
@@ -209,6 +214,8 @@ $padding_buttons: 40px; // padding for buttons when no fraction
   $padding_buttons
 );
 
+
+// sub template
 $template_name: sub;
 $item_height: 75px;
 $item_width: 75px;
@@ -216,10 +223,18 @@ $item_width: 75px;
 $visible: 3;
 $margin: 10px;
 
-$fraction: 0;
+$fraction: 25px;
 
 $padding: 20px;
 $padding_buttons: 40px; // padding for buttons when no fraction    
+
+$horizontal_button_sprite: '../images/horizontal-fraction.png';
+$horizontal_button_width: 32px;
+$horizontal_button_height: 75px;
+
+$vertical_button_sprite: '../images/vertical-fraction.png';
+$vertical_button_width: 75px;
+$vertical_button_height: 32px;
     
 @include jcarousel-template(
   $template_name,
