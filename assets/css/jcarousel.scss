@@ -1,11 +1,12 @@
 // variables
+$template_name: main;
 $item_height: 75px !default;
 $item_width: 75px !default;
 
 $visible: 3 !default;
 $margin: 10px !default;
 
-$fraction: 35px !default;
+$fraction: 0 !default;
 
 $padding: 20px !default;
 $padding_buttons: 40px  !default; // padding for buttons when no fraction
@@ -45,7 +46,7 @@ $container_length: ($item_height * $visible) + (($visible - 1) * $margin);
       overflow: hidden; }    
     }
    
-  /* horizontal buttons */
+  // horizontal
   .jcarousel-container-horizontal {
     width: $container_length - ($fraction * 2 );
     @if $fraction > 0 {
@@ -65,7 +66,7 @@ $container_length: ($item_height * $visible) + (($visible - 1) * $margin);
     margin-left: $margin;
     margin-right: 0; }
     
-  /* vertical */
+  // vertical
   .jcarousel-container-vertical {
     width: $item_width;
     height: $container_length - ($fraction * 2);
@@ -86,7 +87,7 @@ $container_length: ($item_height * $visible) + (($visible - 1) * $margin);
     background: #fff;
     color: #000; }
     
-   /* horizontal buttons */
+   // horizontal buttons
   .jcarousel-next-horizontal {
     position: absolute;
     top: $padding;
@@ -125,7 +126,7 @@ $container_length: ($item_height * $visible) + (($visible - 1) * $margin);
     
   .jcarousel-direction-rtl .jcarousel-prev-horizontal {
     left: auto;
-    right: 5px;
+    right: 0;
     background-image: url(../images/next-horizontal-fraction.png); }
     
   .jcarousel-prev-horizontal {
@@ -142,7 +143,7 @@ $container_length: ($item_height * $visible) + (($visible - 1) * $margin);
       background-position: -96px 0; } }
       
       
-   /* vertical buttons */
+   //vertical buttons
   .jcarousel-next-vertical {
     position: absolute;
     bottom: 0;
@@ -185,7 +186,7 @@ $container_length: ($item_height * $visible) + (($visible - 1) * $margin);
     }
 
 // variables
-$item_name: main;
+$template_name: main;
 $item_height: 75px;
 $item_width: 75px;
 
@@ -198,7 +199,7 @@ $padding: 20px;
 $padding_buttons: 40px; // padding for buttons when no fraction    
     
 @include jcarousel-template(
-  $item_name,
+  $template_name,
   $item_height,
   $item_width,
   $visible,
@@ -208,7 +209,7 @@ $padding_buttons: 40px; // padding for buttons when no fraction
   $padding_buttons
 );
 
-$item_name: sub;
+$template_name: sub;
 $item_height: 75px;
 $item_width: 75px;
 
@@ -221,7 +222,7 @@ $padding: 20px;
 $padding_buttons: 40px; // padding for buttons when no fraction    
     
 @include jcarousel-template(
-  $item_name,
+  $template_name,
   $item_height,
   $item_width,
   $visible,

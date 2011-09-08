@@ -1,9 +1,3 @@
-.jcarousel-skin-main {
-  /* horizontal buttons */
-  /* vertical */
-  /* horizontal buttons */
-  /* vertical buttons */
-}
 .jcarousel-skin-main .jcarousel-container {
   background: #F0F6F9;
   border: 1px solid #346F97;
@@ -91,7 +85,7 @@
 }
 .jcarousel-skin-main .jcarousel-direction-rtl .jcarousel-prev-horizontal {
   left: auto;
-  right: 5px;
+  right: 0;
   background-image: url(../images/next-horizontal-fraction.png);
 }
 .jcarousel-skin-main .jcarousel-prev-horizontal:hover, .jcarousel-skin-main .jcarousel-prev-horizontal:focus {
@@ -155,12 +149,6 @@
   background-position: 0 -96px;
 }
 
-.jcarousel-skin-sub {
-  /* horizontal buttons */
-  /* vertical */
-  /* horizontal buttons */
-  /* vertical buttons */
-}
 .jcarousel-skin-sub .jcarousel-container {
   background: #F0F6F9;
   border: 1px solid #346F97;
@@ -248,7 +236,7 @@
 }
 .jcarousel-skin-sub .jcarousel-direction-rtl .jcarousel-prev-horizontal {
   left: auto;
-  right: 5px;
+  right: 0;
   background-image: url(../images/next-horizontal-fraction.png);
 }
 .jcarousel-skin-sub .jcarousel-prev-horizontal:hover, .jcarousel-skin-sub .jcarousel-prev-horizontal:focus {

@@ -10,19 +10,15 @@
 <script type="text/javascript">
 
 $(document).ready(function() {
-    $('#horizontal-carousel').jcarousel({
+    $('.horizontal').jcarousel({
       wrap: 'circular'
     });
     
-    $('#vertical-carousel').jcarousel({
+    $('.vertical').jcarousel({
       wrap: 'circular',
       vertical: true
     });
     
-    $('#vertical-carousel2').jcarousel({
-      wrap: 'circular',
-      vertical: true
-    });
 });
 
 </script>
@@ -30,15 +26,15 @@ $(document).ready(function() {
 </head>
 <body>
 <div id="wrap">
-  <h1>jCarousel</h1>
-  <h2>Riding carousels with jQuery</h2>
+  <h1>jCarousel and Sass</h1>
+  <h2>Riding carousels with jCarousel and Sass</h2>
 
   <h3>Simple carousel</h3>
   <p>
     This is the most simple usage of the carousel with no configuration options.
   </p>
 
-  <ul id="horizontal-carousel" class="jcarousel-skin-main">
+  <ul class="jcarousel-skin-main horizontal">
     <li><img src="http://static.flickr.com/66/199481236_dc98b5abb3_s.jpg" width="75" height="75" alt="" /></li>
     <li><img src="http://static.flickr.com/75/199481072_b4a0d09597_s.jpg" width="75" height="75" alt="" /></li>
     <li><img src="http://static.flickr.com/57/199481087_33ae73a8de_s.jpg" width="75" height="75" alt="" /></li>
@@ -54,7 +50,7 @@ $(document).ready(function() {
   <br />
   <br />
   
-  <ul id="vertical-carousel" class="jcarousel-skin-main">
+  <ul class="jcarousel-skin-main vertical">
     <li><img src="http://static.flickr.com/66/199481236_dc98b5abb3_s.jpg" width="75" height="75" alt="" /></li>
     <li><img src="http://static.flickr.com/75/199481072_b4a0d09597_s.jpg" width="75" height="75" alt="" /></li>
     <li><img src="http://static.flickr.com/57/199481087_33ae73a8de_s.jpg" width="75" height="75" alt="" /></li>
@@ -70,7 +66,7 @@ $(document).ready(function() {
   <br />
   <br />
   
-  <ul id="vertical-carousel2" class="jcarousel-skin-sub">
+  <ul class="jcarousel-skin-sub horizontal">
     <li><img src="http://static.flickr.com/66/199481236_dc98b5abb3_s.jpg" width="75" height="75" alt="" /></li>
     <li><img src="http://static.flickr.com/75/199481072_b4a0d09597_s.jpg" width="75" height="75" alt="" /></li>
     <li><img src="http://static.flickr.com/57/199481087_33ae73a8de_s.jpg" width="75" height="75" alt="" /></li>
