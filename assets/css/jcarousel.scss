@@ -1,15 +1,24 @@
 // variables
-$item_height: 75px;
-$item_width: 75px;
+$item_height: 75px !default;
+$item_width: 75px !default;
 
-$visible: 3;
-$margin: 10px;
+$visible: 3 !default;
+$margin: 10px !default;
 
-$fraction: 35px;
+$fraction: 35px !default;
 
-$padding: 20px;
-$padding_buttons: 40px; // padding for buttons when no fraction
+$padding: 20px !default;
+$padding_buttons: 40px  !default; // padding for buttons when no fraction
 
+@mixin jcarousel-template(
+  $name,
+  $item_height,
+  $item_width,
+  $visible,
+  $margin,
+  $fraction,
+  $padding,
+  $padding_buttons) {
 
 //calculate variables
 $container_length: ($item_height * $visible) + (($visible - 1) * $margin);
@@ -19,9 +28,7 @@ $container_length: ($item_height * $visible) + (($visible - 1) * $margin);
   $padding_buttons: 0;
   }
 
-
-
-.jcarousel-skin-tango {
+.jcarousel-skin-#{$name} {
   .jcarousel-container {
     background: #F0F6F9;
     border: 1px solid #346F97; }
@@ -174,4 +181,52 @@ $container_length: ($item_height * $visible) + (($visible - 1) * $margin);
     background-position: 0 -96px;
     &:hover, &:focus, &:active {
       cursor: default;
-      background-position: 0 -96px; } } }
+      background-position: 0 -96px; } } }    
+    }
+
+// variables
+$item_name: main;
+$item_height: 75px;
+$item_width: 75px;
+
+$visible: 3;
+$margin: 10px;
+
+$fraction: 0;
+
+$padding: 20px;
+$padding_buttons: 40px; // padding for buttons when no fraction    
+    
+@include jcarousel-template(
+  $item_name,
+  $item_height,
+  $item_width,
+  $visible,
+  $margin,
+  $fraction,
+  $padding,
+  $padding_buttons
+);
+
+$item_name: sub;
+$item_height: 75px;
+$item_width: 75px;
+
+$visible: 3;
+$margin: 10px;
+
+$fraction: 0;
+
+$padding: 20px;
+$padding_buttons: 40px; // padding for buttons when no fraction    
+    
+@include jcarousel-template(
+  $item_name,
+  $item_height,
+  $item_width,
+  $visible,
+  $margin,
+  $fraction,
+  $padding,
+  $padding_buttons
+);
