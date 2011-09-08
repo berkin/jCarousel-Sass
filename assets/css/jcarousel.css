@@ -10,7 +10,7 @@
 }
 .jcarousel-skin-main .jcarousel-container-horizontal {
   width: 245px;
-  padding: 20px 40px;
+  padding: 10px 40px;
 }
 .jcarousel-skin-main .jcarousel-clip-horizontal {
   height: 75px;
@@ -28,7 +28,7 @@
 .jcarousel-skin-main .jcarousel-container-vertical {
   width: 75px;
   height: 245px;
-  padding: 40px 20px;
+  padding: 40px 10px;
 }
 .jcarousel-skin-main .jcarousel-clip-vertical {
   width: 75px;
@@ -44,7 +44,7 @@
 }
 .jcarousel-skin-main .jcarousel-next-horizontal, .jcarousel-skin-main .jcarousel-prev-horizontal, .jcarousel-skin-main .jcarousel-skin-sub .jcarousel-prev-horizontal, .jcarousel-skin-sub .jcarousel-skin-main .jcarousel-prev-horizontal {
   position: absolute;
-  top: 41.5px;
+  top: 31.5px;
   right: 0;
   width: 32px;
   height: 32px;
@@ -97,7 +97,7 @@
 .jcarousel-skin-main .jcarousel-next-vertical, .jcarousel-skin-main .jcarousel-prev-vertical, .jcarousel-skin-main .jcarousel-skin-sub .jcarousel-prev-vertical, .jcarousel-skin-sub .jcarousel-skin-main .jcarousel-prev-vertical {
   position: absolute;
   bottom: 0;
-  left: 41.5px;
+  left: 31.5px;
   width: 32px;
   height: 32px;
   cursor: pointer;
@@ -147,7 +147,7 @@
 .jcarousel-skin-sub .jcarousel-container-horizontal {
   width: 365px;
   overflow: hidden;
-  padding: 20px 0;
+  padding: 10px 0;
 }
 .jcarousel-skin-sub .jcarousel-clip-horizontal {
   height: 75px;
@@ -166,7 +166,7 @@
   width: 75px;
   height: 365px;
   overflow: hidden;
-  padding: 0 20px;
+  padding: 0 10px;
 }
 .jcarousel-skin-sub .jcarousel-clip-vertical {
   width: 75px;
@@ -182,7 +182,7 @@
 }
 .jcarousel-skin-sub .jcarousel-next-horizontal, .jcarousel-skin-sub .jcarousel-skin-main .jcarousel-prev-horizontal, .jcarousel-skin-main .jcarousel-skin-sub .jcarousel-prev-horizontal, .jcarousel-skin-sub .jcarousel-prev-horizontal {
   position: absolute;
-  top: 20px;
+  top: 10px;
   right: 0;
   width: 32px;
   height: 75px;
@@ -235,7 +235,7 @@
 .jcarousel-skin-sub .jcarousel-next-vertical, .jcarousel-skin-sub .jcarousel-skin-main .jcarousel-prev-vertical, .jcarousel-skin-main .jcarousel-skin-sub .jcarousel-prev-vertical, .jcarousel-skin-sub .jcarousel-prev-vertical {
   position: absolute;
   bottom: 0;
-  left: 41.5px;
+  left: 31.5px;
   width: 75px;
   height: 32px;
   cursor: pointer;

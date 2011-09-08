@@ -8,7 +8,7 @@ $margin: 10px !default;
 
 $fraction: 0 !default;
 
-$padding: 20px !default;
+$padding: 10px !default;
 $padding_buttons: 40px  !default; // padding for buttons when no fraction
 
 $horizontal_button_sprite: '../images/horizontal.png';
@@ -200,7 +200,6 @@ $margin: 10px;
 
 $fraction: 0;
 
-$padding: 20px;
 $padding_buttons: 40px; // padding for buttons when no fraction    
     
 @include jcarousel-template($template_name);
