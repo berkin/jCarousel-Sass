@@ -11,185 +11,198 @@ $fraction: 0 !default;
 $padding: 10px !default;
 $padding_buttons: 40px  !default; // padding for buttons when no fraction
 
+$is_horizontal: true !default;
 $horizontal_button_sprite: '../images/horizontal.png';
 $horizontal_button_width: 32px;
 $horizontal_button_height: 32px;
 
+$is_vertical: true !default;
 $vertical_button_sprite: '../images/vertical.png';
 $vertical_button_width: 32px;
 $vertical_button_height: 32px;
 
 @mixin jcarousel-template(
-  $name,
-  $item_height,
-  $item_width,
-  $visible,
-  $margin,
-  $fraction,
-  $padding,
-  $padding_buttons,
-  $horizontal_button_sprite,
-  $horizontal_button_width,
-  $horizontal_button_height,
-  $vertical_button_sprite,
-  $vertical_button_width,
-  $vertical_button_height) {
-
-//calculate variables
-$container_length: ($item_height * $visible) + (($visible - 1) * $margin);
-
-@if $fraction > 0 {
-  // if fraction occurs, no padding is assigned.
-  $padding_buttons: 0;
-  }
-
-.jcarousel-skin-#{$name} {
-
-  .jcarousel-item {
-    width: $item_width;
-    height: $item_height; }
+$name,
+$item_height,
+$item_width,
+$visible,
+$margin,
+$fraction,
+$padding,
+$padding_buttons,
+$horizontal_button_sprite,
+$horizontal_button_width,
+$horizontal_button_height,
+$vertical_button_sprite,
+$vertical_button_width,
+$vertical_button_height) {
   
-  .jcarousel-direction-rtl {
-    direction: rtl; }
+  //calculate variables
+  $container_length: ($item_height * $visible) + (($visible - 1) * $margin);
+  
+  @if $fraction > 0 {
+    // if fraction occurs, no padding is assigned.
+    $padding_buttons: 0;
+  }
+  
+  .jcarousel-skin-#{$name} {
     
-  @if $fraction == 0 {
-    .jcarousel-clip {
-      overflow: hidden; }    
+    .jcarousel-item {
+      width: $item_width;
+    height: $item_height; }
+    
+    .jcarousel-direction-rtl {
+      direction: rtl; }
+    
+    @if $fraction == 0 {
+      .jcarousel-clip {
+        overflow: hidden; }    
     }
-   
-  // horizontal
-  .jcarousel-container-horizontal {
-    width: $container_length - ($fraction * 2 );
-    @if $fraction > 0 {
-            overflow: hidden;}
-    padding: $padding $padding_buttons;}
     
-  .jcarousel-clip-horizontal {
-    height: $item_height; 
-    margin-left: -$fraction;
-    width: $container_length;}
+    @if $is_horizontal {
+      // horizontal
+      .jcarousel-container-horizontal {
+        width: $container_length - ($fraction * 2 );
+        @if $fraction > 0 {
+          overflow: hidden;}
+      padding: $padding $padding_buttons;}
+      
+      .jcarousel-clip-horizontal {
+        height: $item_height; 
+        margin-left: -$fraction;
+      width: $container_length;}
+      
+      .jcarousel-item-horizontal {
+        margin-left: 0;
+      margin-right: $margin; }
+      
+      .jcarousel-direction-rtl .jcarousel-item-horizontal {
+        margin-left: $margin;
+      margin-right: 0; }
+    }
     
-  .jcarousel-item-horizontal {
-    margin-left: 0;
-    margin-right: $margin; }
-    
-  .jcarousel-direction-rtl .jcarousel-item-horizontal {
-    margin-left: $margin;
-    margin-right: 0; }
-    
-  // vertical
-  .jcarousel-container-vertical {
-    width: $item_width;
-    height: $container_length - ($fraction * 2);
-    @if $fraction > 0 {
-            overflow: hidden;}    
-    padding: $padding_buttons $padding; }
+    @if $is_vertical {
 
-  .jcarousel-clip-vertical {
-    width: $item_width;
-    margin-top: -$fraction;
-    height: $container_length; }
-
-
-  .jcarousel-item-vertical {
-    margin-bottom: $margin; }
+      // vertical
+      .jcarousel-container-vertical {
+        width: $item_width;
+        height: $container_length - ($fraction * 2);
+        @if $fraction > 0 {
+          overflow: hidden;}    
+      padding: $padding_buttons $padding; }
+      
+      .jcarousel-clip-vertical {
+        width: $item_width;
+        margin-top: -$fraction;
+      height: $container_length; }
+      
+      
+      .jcarousel-item-vertical {
+      margin-bottom: $margin; }
+    }
     
-  .jcarousel-item-placeholder {
-    background: #fff;
+    .jcarousel-item-placeholder {
+      background: #fff;
     color: #000; }
     
-   // horizontal buttons
-  .jcarousel-next-horizontal {
-    position: absolute;
-    top: $padding + ( ($item_height - $horizontal_button_height)/2 );
-    right: 0;
-    width: $horizontal_button_width;
-    height: $horizontal_button_height;
-    cursor: pointer;
-    background: transparent url($horizontal_button_sprite) no-repeat 0 center; }
     
-  .jcarousel-direction-rtl .jcarousel-next-horizontal {
-    left: 0;
-    right: auto;
-    background-position: (-$horizontal_button_width*4) center; }
-    
-  .jcarousel-next-horizontal {
-    &:hover, &:focus {
-      background-position: -$horizontal_button_width 0; }
-    &:active {
-      background-position: -$horizontal_button_width*2 0; } }
+    @if $is_horizontal {  
+      // horizontal buttons
+      .jcarousel-next-horizontal {
+        position: absolute;
+        top: $padding + ( ($item_height - $horizontal_button_height)/2 );
+        right: 0;
+        width: $horizontal_button_width;
+        height: $horizontal_button_height;
+        cursor: pointer;
+        background: transparent url($horizontal_button_sprite) no-repeat 0 center; }
       
-  .jcarousel-next-disabled-horizontal {
-    cursor: default;
-    background-position: -$horizontal_button_width*3 0;
-    &:hover, &:focus, &:active {
-      cursor: default;
-      background-position: -$horizontal_button_width*3 0; } }
+      .jcarousel-direction-rtl .jcarousel-next-horizontal {
+        left: 0;
+        right: auto;
+        background-position: (-$horizontal_button_width*4) center; }
       
-  .jcarousel-prev-horizontal {
-    @extend .jcarousel-next-horizontal;
-    right: auto;
-    left: 0;
-    background: transparent url($horizontal_button_sprite) no-repeat (-$horizontal_button_width*4) center; }
-    
-  .jcarousel-direction-rtl .jcarousel-prev-horizontal {
-    left: auto;
-    right: 0;
-    background-position: 0 center }
-    
-  .jcarousel-prev-horizontal {
-    &:hover, &:focus {
-      background-position: (-$horizontal_button_width*5) 0; }
-    &:active {
-      background-position: (-$horizontal_button_width*6) 0; } }
-      
-  .jcarousel-prev-disabled-horizontal {
-    cursor: default;
-    background-position: (-$horizontal_button_width*7) 0;
-    &:hover, &:focus, &:active {
-      cursor: default;
-      background-position: (-$horizontal_button_width*7) 0; } }
-      
-      
-   //vertical buttons
-  .jcarousel-next-vertical {
-    position: absolute;
-    bottom: 0;
-    left: $padding + ( ($item_width - $horizontal_button_width)/2 );
-    width: $vertical_button_width;
-    height: $vertical_button_height;
-    cursor: pointer;
-    background: transparent url($vertical_button_sprite) no-repeat center 0;
-    &:hover, &:focus {
-      background-position: 0 (-$vertical_button_height); }
-    &:active {
-      background-position: 0 (-$vertical_button_height*2); } }
-      
-  .jcarousel-next-disabled-vertical {
-    cursor: default;
-    background-position: 0 (-$vertical_button_height*3);
-    &:hover, &:focus, &:active {
-      cursor: default;
-      background-position: 0 (-$vertical_button_height*3); } }
-      
-  .jcarousel-prev-vertical {
-    @extend .jcarousel-next-vertical;
-    top: 0;
-    bottom: auto;
-    background: transparent url($vertical_button_sprite) no-repeat center (-$vertical_button_height*4);
-    &:hover, &:focus {
-      background-position: 0 (-$vertical_button_height*5); }
-    &:active {
-      background-position: 0 (-$vertical_button_height*6); } }
-      
-  .jcarousel-prev-disabled-vertical {
-    cursor: default;
-    background-position: 0 (-$vertical_button_height*7);
-    &:hover, &:focus, &:active {
-      cursor: default;
-      background-position: 0 (-$vertical_button_height*7); } } }    
-    }
-
+      .jcarousel-next-horizontal {
+        &:hover, &:focus {
+        background-position: -$horizontal_button_width 0; }
+        &:active {
+        background-position: -$horizontal_button_width*2 0; } }
+        
+        .jcarousel-next-disabled-horizontal {
+          cursor: default;
+          background-position: -$horizontal_button_width*3 0;
+          &:hover, &:focus, &:active {
+            cursor: default;
+          background-position: -$horizontal_button_width*3 0; } }
+          
+          .jcarousel-prev-horizontal {
+            @extend .jcarousel-next-horizontal;
+            right: auto;
+            left: 0;
+            background: transparent url($horizontal_button_sprite) no-repeat (-$horizontal_button_width*4) center; }
+          
+          .jcarousel-direction-rtl .jcarousel-prev-horizontal {
+            left: auto;
+            right: 0;
+            background-position: 0 center }
+          
+          .jcarousel-prev-horizontal {
+            &:hover, &:focus {
+            background-position: (-$horizontal_button_width*5) 0; }
+            &:active {
+            background-position: (-$horizontal_button_width*6) 0; } }
+            
+            .jcarousel-prev-disabled-horizontal {
+              cursor: default;
+              background-position: (-$horizontal_button_width*7) 0;
+              &:hover, &:focus, &:active {
+                cursor: default;
+              background-position: (-$horizontal_button_width*7) 0; } }
+            }
+            
+            
+            @if $is_vertical {
+              //vertical buttons
+              .jcarousel-next-vertical {
+                position: absolute;
+                bottom: 0;
+                left: $padding + ( ($item_width - $horizontal_button_width)/2 );
+                width: $vertical_button_width;
+                height: $vertical_button_height;
+                cursor: pointer;
+                background: transparent url($vertical_button_sprite) no-repeat center 0;
+                &:hover, &:focus {
+                background-position: 0 (-$vertical_button_height); }
+                &:active {
+                background-position: 0 (-$vertical_button_height*2); } }
+                
+                .jcarousel-next-disabled-vertical {
+                  cursor: default;
+                  background-position: 0 (-$vertical_button_height*3);
+                  &:hover, &:focus, &:active {
+                    cursor: default;
+                  background-position: 0 (-$vertical_button_height*3); } }
+                  
+                  .jcarousel-prev-vertical {
+                    @extend .jcarousel-next-vertical;
+                    top: 0;
+                    bottom: auto;
+                    background: transparent url($vertical_button_sprite) no-repeat center (-$vertical_button_height*4);
+                    &:hover, &:focus {
+                    background-position: 0 (-$vertical_button_height*5); }
+                    &:active {
+                    background-position: 0 (-$vertical_button_height*6); } }
+                    
+                    .jcarousel-prev-disabled-vertical {
+                      cursor: default;
+                      background-position: 0 (-$vertical_button_height*7);
+                      &:hover, &:focus, &:active {
+                        cursor: default;
+                      background-position: 0 (-$vertical_button_height*7); } } 
+                    }    
+                  }
+                }
+                
 // main template
 $template_name: main;
 $item_height: 75px;
@@ -201,7 +214,7 @@ $margin: 10px;
 $fraction: 0;
 
 $padding_buttons: 40px; // padding for buttons when no fraction    
-    
+
 @include jcarousel-template($template_name);
 
 
@@ -214,7 +227,8 @@ $fraction: 25px;
 $horizontal_button_sprite: '../images/horizontal-fraction.png';
 $horizontal_button_height: 75px;
 
+$is_vertical: false;
 $vertical_button_sprite: '../images/vertical-fraction.png';
 $vertical_button_width: 75px;
-    
+
 @include jcarousel-template($template_name);
